@@ -1,28 +1,35 @@
-<table class="table" *ngIf="cars">
-  <thead>
-  <tr>
-    <th (click)="orderBy('model')">Model</th>
-    <th (click)="orderBy('wheels')">Wheels</th>
-    <th (click)="orderBy('color')">Color</th>
-    <th (click)="orderBy('price')">Price</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr  *ngFor="let car of cars | orderBy: orderByParam">
-    <td>{{car.model}}</td>
-    <td>{{car.wheels}}</td>
-    <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
-    <td>{{car.price | currency:'EUR':true}}</td>
-    <td>
-      <a [routerLink]="[car.id]">View</a> | <a routerLink="/cars/{{car.id}}/edit">Edit</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div  *ngIf="cars">
+  <div class="filter-block align-right">
+    <form class="form-inline" #form="ngForm">
+      <label for="filter">Filter</label>
+      <input type="text" class="form-control" id="filter" placeholder="Add text to filter" [(ngModel)]="filterParam" name="filter">
+    </form>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th (click)="orderBy('model')">Model</th>
+      <th (click)="orderBy('wheels')">Wheels</th>
+      <th (click)="orderBy('color')">Color</th>
+      <th (click)="orderBy('price')">Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let car of cars | filter: 'model':filterParam | orderBy: orderByParam">
+      <td>{{car.model}}</td>
+      <td>{{car.wheels}}</td>
+      <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
+      <td>{{car.price | currency:'EUR':true}}</td>
+      <td>
+        <a [routerLink]="[car.id]">View</a> | <a routerLink="/cars/{{car.id}}/edit">Edit</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<p>
-  <small>* Click on the table headers for car sorting.</small>
-</p>
-
+  <p>
+    <small>* Click on the table headers for car sorting.</small>
+  </p>
+</div>
 <a routerLink="/cars/new" routerLinkActive="active" class="btn btn-primary">New Car</a>
