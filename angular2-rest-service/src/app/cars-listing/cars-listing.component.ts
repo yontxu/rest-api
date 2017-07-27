@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarsService } from 'app/services/cars.service';
+import { NgForm, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cars-listing',
@@ -8,6 +9,7 @@ import { CarsService } from 'app/services/cars.service';
 })
 export class CarsListingComponent implements OnInit {
   orderByParam: string = 'id';
+  filterParam: string = '';
   cars;
 
   constructor(private carsService: CarsService) {}
