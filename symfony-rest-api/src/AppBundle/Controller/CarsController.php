@@ -26,7 +26,7 @@
 		 */
 		public function indexAction() {
 			$cars = $this->getDoctrine()->getRepository( 'AppBundle:Car' )->findAll();
-			if ( $cars === null || empty($cars)) {
+			if ( $cars === null ) {
 				return new View( "Not found.", Response::HTTP_NOT_FOUND );
 			}
 			return $cars;
