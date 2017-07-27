@@ -7,6 +7,7 @@ import { CarsService } from 'app/services/cars.service';
   styleUrls: ['./cars-listing.component.css']
 })
 export class CarsListingComponent implements OnInit {
+  orderByParam: string = 'id';
   cars;
 
   constructor(private carsService: CarsService) {}
@@ -15,4 +16,7 @@ export class CarsListingComponent implements OnInit {
     this.carsService.getCars().subscribe(p => this.cars = p);
   }
 
+  orderBy(value){
+    this.orderByParam = value;
+  }
 }

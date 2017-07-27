@@ -9,7 +9,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr  *ngFor="let car of cars">
+  <tr  *ngFor="let car of cars | orderBy: orderByParam">
     <td>{{car.model}}</td>
     <td>{{car.wheels}}</td>
     <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
