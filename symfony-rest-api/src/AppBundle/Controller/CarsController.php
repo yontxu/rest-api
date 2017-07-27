@@ -23,4 +23,13 @@
 			return $cars;
 		}
 
+		/**
+		 * GET Route annotation.
+		 * @Get("/cars/{id}")
+		 */
+		public function showAction( $id ) {
+			$car = $this->getDoctrine()->getRepository( 'AppBundle:Car' )->find( $id );
+			return $car;
+		}
+
 	}
