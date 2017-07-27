@@ -11,8 +11,11 @@
 
 	use FOS\RestBundle\Controller\FOSRestController;
 	use FOS\RestBundle\Controller\Annotations\Get;
+	use FOS\RestBundle\Controller\Annotations\Post;
+	use Symfony\Component\HttpFoundation\Request;
 	use Symfony\Component\HttpFoundation\Response;
 	use FOS\RestBundle\View\View;
+	use AppBundle\Entity\Car;
 
 	class CarsController extends FOSRestController {
 
@@ -37,6 +40,34 @@
 			if ( $car === null) {
 				return new View( "Not found.", Response::HTTP_NOT_FOUND );
 			}
+			return $car;
+		}
+
+		/**
+		 * @Post("/cars")
+		 */
+		public function postAction( Request $request ) {
+			$car = new Car();
+
+			$model = $request->get( 'model' );
+			$wheels = $request->get( 'wheels' );
+			$color  = $request->get( 'color' );
+			$price = $request->get( 'price' );
+
+			//todo: improve request data type validation
+			if ( empty($model) || empty($wheels) || empty($color) || empty($price) ) {
+				return new View("Unable to process the Car entity", Response::HTTP_NOT_ACCEPTABLE);
+			}
+
+			$car->setModel($model);
+			$car->setWheels($wheels);
+			$car->setColor($color);
+			$car->setPrice($price);
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($car);
+			$em->flush();
+
 			return $car;
 		}
 
