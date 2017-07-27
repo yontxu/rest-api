@@ -16,4 +16,9 @@ export class CarsService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getCar(id): Observable<Car> {
+      return this.http.get(`${baseUrl}/cars/${id}`)
+        .map((res: Response) => res.json())
+        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
 }
