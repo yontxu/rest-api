@@ -1,10 +1,10 @@
 <table class="table" *ngIf="cars">
   <thead>
   <tr>
-    <th>Model</th>
-    <th>Wheels</th>
-    <th>Color</th>
-    <th>Price</th>
+    <th (click)="orderBy('model')">Model</th>
+    <th (click)="orderBy('wheels')">Wheels</th>
+    <th (click)="orderBy('color')">Color</th>
+    <th (click)="orderBy('price')">Price</th>
     <th></th>
   </tr>
   </thead>
@@ -13,7 +13,7 @@
     <td>{{car.model}}</td>
     <td>{{car.wheels}}</td>
     <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
-    <td>{{car.price}}</td>
+    <td>{{car.price | currency:'EUR':true}}</td>
     <td>
       <a [routerLink]="[car.id]">View</a> | <a routerLink="/cars/{{car.id}}/edit">Edit</a>
     </td>

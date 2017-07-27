@@ -4,7 +4,7 @@
     <p class="card-text"><span calss="strong">Model:</span> {{car.model}}</p>
     <p class="card-text"><span calss="strong">Wheels:</span> {{car.wheels}}</p>
     <p class="card-text"><span calss="strong">Color:</span> {{car.color}}</p>
-    <p class="card-text"><span calss="strong">Price:</span> {{car.price}}</p>
+    <p class="card-text"><span calss="strong">Price:</span> {{car.price | currency:'EUR':true}}</p>
     <a routerLink="/cars/{{car.id}}/edit" routerLinkActive="active" class="card-link">Edit Car</a>
     <a routerLink="/cars" class="card-link">Go to list</a>
   </div>
