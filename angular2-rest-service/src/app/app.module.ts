@@ -9,6 +9,7 @@ import { CarsComponent } from './cars/cars.component';
 import { CarsListingComponent } from './cars-listing/cars-listing.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { CarFormComponent } from './car-form/car-form.component';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 import { AppComponent } from './app.component';
 
@@ -30,7 +31,8 @@ const carsRoutes: Routes = [
     CarsComponent,
     CarsListingComponent,
     CarDetailComponent,
-    CarFormComponent
+    CarFormComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
