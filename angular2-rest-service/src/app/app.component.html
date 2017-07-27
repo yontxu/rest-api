@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <h1>
+    {{title}}
+  </h1>
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/cars/" routerLinkActive="active">Cars</a>
+  <router-outlet></router-outlet>
+
+</div>
