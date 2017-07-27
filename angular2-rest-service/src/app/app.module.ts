@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { CarsService } from 'app/services/cars.service';
 import { CarsComponent } from './cars/cars.component';
 import { CarsListingComponent } from './cars-listing/cars-listing.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+
+import { AppComponent } from './app.component';
 
 const carsRoutes: Routes = [
   { path: 'cars',
@@ -33,7 +35,7 @@ const carsRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot( carsRoutes )
   ],
-  providers: [],
+  providers: [CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
