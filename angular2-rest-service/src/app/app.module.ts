@@ -12,6 +12,7 @@ import { CarFormComponent } from './car-form/car-form.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
 import { AppComponent } from './app.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const carsRoutes: Routes = [
   { path: 'cars',
@@ -32,7 +33,8 @@ const carsRoutes: Routes = [
     CarsListingComponent,
     CarDetailComponent,
     CarFormComponent,
-    OrderByPipe
+    OrderByPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
