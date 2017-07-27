@@ -78,3 +78,14 @@ fos_rest:
             - { priorities: ['json'], fallback_format: json, prefer_extension: false }
     view:
         view_response_listener: 'force'
+
+# Nelmio CORS Configuration
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: ['*']
+        allow_headers: ['*']
+        allow_methods: ['GET', 'POST', 'PATCH', 'OPTIONS']
+        max_age: 3600
+        hosts: []
+        origin_regex: false
