@@ -1,7 +1,7 @@
 symfony-rest-api
 ================
 
-The main goal on this project is being a proof of concept of an initial REST API project.
+The main goal on this project is being a proof of concept of an initial REST API Symfony 3.5.3 project.
 
 ## Prerequisites
 
