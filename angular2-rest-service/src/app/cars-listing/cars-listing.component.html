@@ -14,7 +14,9 @@
     <td>{{car.wheels}}</td>
     <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
     <td>{{car.price}}</td>
-    <td><a [routerLink]="[car.id]">View</a></td>
+    <td>
+      <a [routerLink]="[car.id]">View</a> | <a routerLink="/cars/{{car.id}}/edit">Edit</a>
+    </td>
   </tr>
   </tbody>
 </table>

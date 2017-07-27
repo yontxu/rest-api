@@ -8,6 +8,7 @@ import { CarsService } from 'app/services/cars.service';
 import { CarsComponent } from './cars/cars.component';
 import { CarsListingComponent } from './cars-listing/cars-listing.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+import { CarFormComponent } from './car-form/car-form.component';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,9 @@ const carsRoutes: Routes = [
     component: CarsComponent,
     children: [
       { path: '', component: CarsListingComponent },
-      { path: ':car_id', component: CarDetailComponent }
+      { path: 'new', component: CarFormComponent },
+      { path: ':car_id', component: CarDetailComponent },
+      { path: ':car_id/edit', component: CarFormComponent }
     ]
   }
 ];
@@ -26,7 +29,8 @@ const carsRoutes: Routes = [
     AppComponent,
     CarsComponent,
     CarsListingComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    CarFormComponent
   ],
   imports: [
     BrowserModule,
