@@ -6,17 +6,25 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
+import { CarsListingComponent } from './cars-listing/cars-listing.component';
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 const carsRoutes: Routes = [
   { path: 'cars',
-    component: CarsComponent
+    component: CarsComponent,
+    children: [
+      { path: '', component: CarsListingComponent },
+      { path: ':car_id', component: CarDetailComponent }
+    ]
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent
+    CarsComponent,
+    CarsListingComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
