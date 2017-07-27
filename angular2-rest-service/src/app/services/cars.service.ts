@@ -17,8 +17,20 @@ export class CarsService {
   }
 
   getCar(id): Observable<Car> {
-      return this.http.get(`${baseUrl}/cars/${id}`)
-        .map((res: Response) => res.json())
-        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
+    return this.http.get(`${baseUrl}/cars/${id}`)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  createCar(body: any): Observable<Car> {
+    return this.http.post(`${baseUrl}/cars`, body)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  updateCar(id: number, body: any): Observable<Car> {
+    return this.http.patch(`${baseUrl}/cars/${id}`, body)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }
