@@ -44,9 +44,13 @@ export class CarFormComponent implements OnInit {
 
   save() {
     if(this.car.id){
-      console.log('Update');
+      this.carsService.updateCar(this.car.id, this.carForm.value).subscribe(res => {
+        this.router.navigate(['/cars/', res.id]);
+      });
     }else{
-      console.log('Create');
+      this.carsService.createCar(this.carForm.value).subscribe(res => {
+        this.router.navigate(['/cars/', res.id]);
+      });
     }
   }
 }
