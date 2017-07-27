@@ -5,7 +5,8 @@
     <p class="card-text"><span calss="strong">Wheels:</span> {{car.wheels}}</p>
     <p class="card-text"><span calss="strong">Color:</span> {{car.color}}</p>
     <p class="card-text"><span calss="strong">Price:</span> {{car.price}}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a routerLink="/cars/{{car.id}}/edit" routerLinkActive="active" class="card-link">Edit Car</a>
+    <a routerLink="/cars" class="card-link">Go to list</a>
   </div>
 </div>
+
