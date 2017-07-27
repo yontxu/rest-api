@@ -10,7 +10,17 @@
 
 
 	use FOS\RestBundle\Controller\FOSRestController;
+	use FOS\RestBundle\Controller\Annotations\Get;
 
 	class CarsController extends FOSRestController {
+
+		/**
+		 * GET Route annotation.
+		 * @Get("/cars")
+		 */
+		public function indexAction() {
+			$cars = $this->getDoctrine()->getRepository( 'AppBundle:Car' )->findAll();
+			return $cars;
+		}
 
 	}
