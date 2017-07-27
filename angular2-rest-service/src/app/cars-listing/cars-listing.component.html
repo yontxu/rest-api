@@ -1,3 +1,20 @@
-<p>
-  cars-listing works!
-</p>
+<table class="table" *ngIf="cars">
+  <thead>
+  <tr>
+    <th>Model</th>
+    <th>Wheels</th>
+    <th>Color</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  *ngFor="let car of cars">
+    <td>{{car.model}}</td>
+    <td>{{car.wheels}}</td>
+    <td [ngStyle]="{'background-color': car.color}">{{car.color}}</td>
+    <td>{{car.price}}</td>
+    <td><a [routerLink]="[car.id]">View</a></td>
+  </tr>
+  </tbody>
+</table>
