@@ -2,6 +2,12 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
+## Installation
+
+* `git clone git@github.com:yontxu/rest-api.git` this repository
+* `cd rest-api/angular2-rest-service`
+* `npm install`
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
