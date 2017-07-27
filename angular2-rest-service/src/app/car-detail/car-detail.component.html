@@ -1,3 +1,11 @@
-<p>
-  car-detail works!
-</p>
+<div class="card" *ngIf="car">
+  <div class="card-block">
+    <h3 class="card-title">Detail View</h3>
+    <p class="card-text"><span calss="strong">Model:</span> {{car.model}}</p>
+    <p class="card-text"><span calss="strong">Wheels:</span> {{car.wheels}}</p>
+    <p class="card-text"><span calss="strong">Color:</span> {{car.color}}</p>
+    <p class="card-text"><span calss="strong">Price:</span> {{car.price}}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
